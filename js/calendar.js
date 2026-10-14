@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 text: "Fiesta Temática Los Sims",
                 dates: "20261024T163000/20261024T173000", // Formato UTC ISO
                 details: "¡No te olvides de venir con tu mejor onda sim! Habrá comida, música y mucha diversión en el solar.",
-                location: "Gualeguaychú 1012, Floresta, CABA, Argentina"
+                location: "Gualeguaychú 1012 PB, Floresta, CABA, Argentina"
             };
 
             // Construcción dinámica de la URL oficial de Google Calendar

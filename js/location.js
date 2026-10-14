@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const copyAddressBtn = document.getElementById("copyAddressBtn");
     const copyFeedback = document.getElementById("copyFeedback");
-    const addressText = "Av. Libertador 4500, CABA, Argentina"; // Dirección a copiar
+    const addressText = "Gualeguaychú 1012 PB, Floresta, CABA, Argentina"; // Dirección a copiar
 
     if (copyAddressBtn) {
         copyAddressBtn.addEventListener("click", async () => {
