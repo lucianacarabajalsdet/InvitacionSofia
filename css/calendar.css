@@ -1,0 +1,171 @@
+/* ==========================================
+   ESTILOS: CALENDARIO / AGENDA (Estilo Alerta Sims)
+   Mobile-First con adaptaciones responsive
+   ========================================== */
+
+.calendar-section {
+    padding: 3rem 1rem;
+    background: linear-gradient(180deg, var(--sims-dark-blue), #0f172a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor simulando el marco de un celular del juego */
+.sims-phone-container {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 4px solid #38bdf8;
+    border-radius: 30px;
+    padding: 1rem 1rem 2rem 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.3);
+    backdrop-filter: blur(10px);
+    position: relative; /* Necesario para posicionar la burbuja flotante */
+}
+
+/* Burbuja de notificación estilo "Nuevo Mensaje" de Los Sims */
+.sims-message-bubble {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0284c7;
+    border: 2px solid #38bdf8;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    animation: bounceBubble 2s ease-in-out infinite;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+@keyframes bounceBubble {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.bubble-icon {
+    font-size: 0.9rem;
+}
+
+/* Barra superior del celular */
+.sims-phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 1rem 0.8rem 1rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    margin-top: 0.5rem; /* Espacio para que la burbuja no lo tape */
+}
+
+.phone-time {
+    font-weight: bold;
+    color: #f8fafc;
+}
+
+/* Tarjeta de notificación interna */
+.sims-notification-card {
+    background: rgba(30, 41, 59, 0.85);
+    border: 2px solid rgba(88, 204, 2, 0.4); /* Toque verde Plumbob */
+    border-radius: 18px;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+}
+
+.notification-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.calendar-info h3 {
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 0.8rem;
+}
+
+.calendar-date {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.calendar-time {
+    color: var(--sims-green);
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.calendar-tip {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    display: block;
+    font-style: italic;
+}
+
+/* Botón de acción táctil */
+.calendar-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-sims-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--sims-green);
+    color: #002200;
+    border: 2px solid #76ff03;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(88, 204, 2, 0.3);
+}
+
+.calendar-sims-btn:hover {
+    background-color: #46a001;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(88, 204, 2, 0.5);
+}
+
+/* ==========================================
+   ADAPTACIONES RESPONSIVE (Tablet y PC)
+   ========================================== */
+@media (min-width: 768px) {
+    .calendar-section {
+        padding: 4rem 2rem;
+    }
+
+    .sims-phone-container {
+        max-width: 460px;
+        padding: 1.2rem 1.2rem 2.5rem 1.2rem;
+    }
+}

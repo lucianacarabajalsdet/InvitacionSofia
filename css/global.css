@@ -1,0 +1,42 @@
+/* ==========================================
+   VARIABLES Y ESTILOS GLOBALES (Los Sims Theme)
+   ========================================== */
+:root {
+    --sims-blue: #006699;
+    --sims-dark-blue: #003366;
+    --sims-green: #58cc02; /* Verde Plumbob vibrante */
+    --sims-plumbob-glow: rgba(88, 204, 2, 0.6);
+    --bg-overlay: rgba(0, 51, 102, 0.85);
+    --text-color: #ffffff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--sims-dark-blue);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Utilidades generales */
+.hidden {
+    display: none !important;
+}
+
+/* Adaptación responsive básica para Tablet y PC */
+@media (min-width: 768px) {
+    body {
+        max-width: 480px; /* Ancho simulando pantalla de celular centrada en desktop */
+        margin: 0 auto;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+}

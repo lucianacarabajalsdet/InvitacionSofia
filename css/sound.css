@@ -1,0 +1,51 @@
+/* ==========================================
+   ESTILOS MÓDULO SOUND (Mobile First)
+   ========================================== */
+.sound-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.sound-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.25s ease;
+}
+
+.sound-toggle-btn:hover {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(56, 189, 248, 0.7);
+    transform: scale(1.03);
+}
+
+.sound-icon {
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   MEDIA QUERIES PARA TABLET Y PC
+   ========================================== */
+@media (min-width: 768px) {
+    .sound-widget {
+        bottom: 25px;
+        right: 25px;
+    }
+
+    .sound-toggle-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}

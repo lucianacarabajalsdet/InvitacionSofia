@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Estás invitado/a! - Los Sims Party</title>
+    
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/global.css">
+    
+    <!-- Estilos por Secciones -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="css/rsvp.css">
+    <link rel="stylesheet" href="css/music.css">
+    <link rel="stylesheet" href="css/location.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/trivia.css">
+    <link rel="stylesheet" href="css/lcdesing.css">
+    <link rel="stylesheet" href="css/sound.css">
+    
+</head>
+<body>
+
+    <!-- 1. HEADER / PANTALLA DE CARGA -->
+    <header id="loading-screen" class="loading-container">
+        <div class="sims-logo-container">
+            <!-- Icono o Diamante Plumbob -->
+            <div class="plumbob"></div>
+            <h1>Cargando Contenido...</h1>
+        </div>
+        <div class="progress-bar-background">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <p class="loading-tip" id="loadingTip">Simulando la fiesta perfecta...</p>
+        <button id="enterBtn" class="btn-sims hidden">¡Jugar / Entrar a la Fiesta!</button>
+    </header>
+
+    <!-- 2. PANEL DE CONTROL / INFO DEL SIM -->
+    <section id="sim-info" class="sim-info-section">
+        <div class="sim-card">
+            <!-- Retrato y Plumbob flotante -->
+            <div class="sim-avatar-container">
+                <div class="plumbob-small"></div>
+                <div class="sim-avatar">
+                    <!-- Podés reemplazar la ruta por tu foto o la del homenajeado -->
+                    <img src="assets/img/simsofi.jpeg" alt="Sim Homenajeado" id="simAvatarImg">
+                </div>
+            </div>
+            
+            <div class="sim-details">
+                <h2 id="simName">Sofi Sim</h2>
+                <p class="sim-occupation">Aspiración: <span>Autora de Best Sellers Nivel 10</span></p>
+                
+                <!-- Rasgos (Traits) con interactividad -->
+                <div class="traits-container">
+                    <span class="trait-badge" data-tooltip="En momentos chill saca sus dotes.">🎉 Creativa</span>
+                    <span class="trait-badge" data-tooltip="Se compro una minilampara por Temu para leer.">✨ Bibliófila</span>
+                    <span class="trait-badge" data-tooltip="Romàntica empedernida de esos seres.">💎 Entusiasta de los animales</span>
+                </div>
+
+                <!-- Tarjeta de Datos del Evento -->
+                <div class="event-data-box">
+                    <div class="event-item">
+                        <span class="event-icon">📅</span>
+                        <div>
+                            <strong>Fecha</strong>
+                            <p>Sábado, 24 de Octubre</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-icon">⏰</span>
+                        <div>
+                            <strong>Hora</strong>
+                            <p>16:30 hs (¡Llegar puntual!)</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-icon">📍</span>
+                        <div>
+                            <strong>Solar (Ubicación)</strong>
+                            <p> "El SimsHouse"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PANEL DE NECESIDADES (RSVP / FORMULARIO) -->
+    <section id="rsvp-section" class="rsvp-section">
+        <div class="rsvp-card" id="rsvpContainer">
+            <!-- Barra de Necesidad Estilo Los Sims -->
+            <div class="need-bar-container">
+                <div class="need-label">
+                    <span>⚡ Necesidad: Socialización</span>
+                    <span class="need-status">Neutral ➔ Fiesta</span>
+                </div>
+                <div class="need-bar-bg">
+                    <div class="need-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="rsvp-header">
+                <h2>¿Asistirás al Solar?</h2>
+                <p>Completa el formulario para llenar la barra de diversión del evento.</p>
+            </div>
+
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre y Apellido del Sim:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="asistencia">Estado de Asistencia:</label>
+                    <select id="asistencia" name="asistencia" required>
+                        <option value="" disabled selected>Seleccioná una opción...</option>
+                        <option value="¡Obvio, ahí estaré!">¡Obvio, ahí estaré!</option>
+                        <option value="Sim, pero llego tarde">Sim, pero llego tarde</option>
+                        <option value="No puedo, me abdujo un OVNI">No puedo, me abdujo un OVNI 🛸</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="acompanantes">Cantidad de Acompañantes:</label>
+                    <input type="number" id="acompanantes" name="acompanantes" min="0" max="5" value="0" >
+                </div>
+
+                <div class="form-group">
+                    <label for="comentarios">Restricciones o Comentarios (Opcional):</label>
+                    <textarea id="comentarios" name="comentarios" rows="2" placeholder="Ej. Vegetariano, alergias, etc."></textarea>
+                </div>
+
+                <button type="submit" class="btn-sims btn-submit">Enviar Respuesta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. DJ BOOTH / SUGERENCIA DE MÚSICA -->
+    <section id="music-section" class="music-section">
+        <div class="music-card" id="musicContainer">
+
+            <!-- Aviso visual de sección bloqueada -->
+            <div id="lockNotice" class="lock-message">
+                 <em>Completa el RSVP para desbloquear la cabina del DJ</em>
+            </div>
+
+
+
+
+
+            <!-- Ecualizador visual decorativo -->
+            <div class="dj-header">
+                <div class="vinyl-icon">💿</div>
+                <h2>Cabina de DJ (Sugerencias)</h2>
+                <p>¿Qué tema no puede faltar en la playlist del Sim? ¡Recomendá el tuyo!</p>
+            </div>
+
+            <form id="musicForm" class="music-form">
+                <div class="form-group">
+                    <label for="djNombre">Tu Nombre / Sim:</label>
+                    <input type="text" id="djNombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="cancion">Artista y Tema Musical:</label>
+                    <input type="text" id="cancion" name="cancion" placeholder="Ej. Daft Punk - Get Lucky" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="djComentario">Mensaje para el DJ (Opcional):</label>
+                    <textarea id="djComentario" name="comentario" rows="2" placeholder="Ej. ¡Pushear este tema a las 2 AM!"></textarea>
+                </div>
+
+                <button type="submit" class="btn-sims btn-submit">Pinchar y Enviar Tema</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+     SECCIÓN 5: MODO CONSTRUCCIÓN (Ubicación)
+     ========================================== -->
+<section id="location-section" class="location-section">
+    <div class="location-container">
+        <!-- Encabezado estilo interfaz de Los Sims -->
+        <div class="sims-header-tag">
+            <span class="plumbob-icon">💎</span>
+            <h2>MODO CONSTRUCCIÓN</h2>
+        </div>
+        
+        <div class="location-card">
+            <div class="location-info">
+                <h3>Visitar residencia Vicky</h3>
+                <p class="address-text">Gualeguaychú 1012, Floresta</p>
+                <p class="location-tip">💡 <em>Tip de Sim: Asegúrate de llegar con la barra de energía alta para bailar toda la noche.</em></p>
+            </div>
+
+            <!-- Botones de Acción / CTAs -->
+            <div class="location-actions">
+                <a href="https://maps.google.com/?q=Gualeguaychú+1012,+C1407+Cdad.+Autónoma+de+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="sims-btn primary-btn">
+                    🗺️ Abrir en Google Maps
+                </a>
+                <button type="button" id="copyAddressBtn" class="sims-btn secondary-btn">
+                    📋 Copiar Dirección
+                </button>
+            </div>
+            <!-- Feedback visual de copiado -->
+            <span id="copyFeedback" class="copy-feedback hidden">¡Dirección copiada al portapapeles! ✨</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     SECCIÓN 6: CALENDARIO / AGENDA (Estilo Teléfono / Alerta de Los Sims)
+     ========================================== -->
+<section id="calendar-section" class="calendar-section">
+    <div class="sims-phone-container">
+
+
+        <!-- BURBUJA DE NUEVO MENSAJE TIPO LOS SIMS -->
+        <div class="sims-message-bubble">
+            <span class="bubble-icon">💬</span> 
+            <span class="bubble-text">¡Nuevo mensaje de la Agenda Sim!</span>
+        </div>
+
+
+
+
+        <!-- Interfaz superior simulando el celular / notificación del juego -->
+        <div class="sims-phone-header">
+            <span class="phone-time">19:30</span>
+            <span class="phone-icons">📶 🔋</span>
+        </div>
+
+        <div class="sims-notification-card">
+            <div class="notification-badge">📱 ¡Evento Social Próximo!</div>
+            
+            <div class="calendar-info">
+                <h3>Fiesta Temática Los Sims</h3>
+                <p class="calendar-date">🗓️ Sàbado, 24 de Octubre de 2026</p>
+                <p class="calendar-time">⏰ 16:30 hs</p>
+                <p class="calendar-tip">💡 <em>"Asegurate de que tu Sim tenga la vejiga vacía y la barra social al máximo antes de salir."</em></p>
+            </div>
+
+            <!-- Botón de Acción / CTA con estética de interfaz del juego -->
+            <div class="calendar-actions">
+                <button type="button" id="calendarBtn" class="sims-btn calendar-sims-btn">
+                    🗓️ Aceptar Invitación (Agendar)
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     SECCIÓN 7: TRIVIA SIM (Desafío de Lore y Simoleones)
+     ========================================== -->
+<section id="trivia-section" class="trivia-section">
+    <div class="trivia-container">
+        <!-- Encabezado estilo panel de juego -->
+        <div class="sims-header-tag">
+            <span class="plumbob-icon">🎮</span>
+            <h2>TRIVIA SIMS</h2>
+        </div>
+        
+        <div class="trivia-card">
+            <!-- Pantalla inicial / Botón de inicio -->
+            <div id="triviaStartScreen" class="trivia-screen">
+                <p class="trivia-intro">Demuestra cuánto sabes sobre el universo Sim. ¡Responde 5 preguntas, gana Simoleones y pon a prueba tu memoria!</p>
+                <button type="button" id="startTriviaBtn" class="sims-btn primary-btn">
+                    🚀 Iniciar Trivia (Intentos: <span id="attemptsLeft">3</span>/3)
+                </button>
+            </div>
+
+            <!-- Pantalla de preguntas (Oculta al inicio) -->
+            <div id="triviaGameScreen" class="trivia-screen hidden">
+                <div class="trivia-HUD">
+                    <span id="questionCounter">Pregunta 1/5</span>
+                    <span id="scoreDisplay">💰 0 Simoleones</span>
+                </div>
+                <h3 id="questionTitle" class="question-title">Cargando pregunta...</h3>
+                <div id="optionsContainer" class="options-container">
+                    <!-- Los botones de opciones se inyectan dinámicamente con JS -->
+                </div>
+            </div>
+
+
+            <!-- Pantalla de resultados (Oculta al inicio) -->
+            <div id="triviaResultScreen" class="trivia-screen hidden">
+                <div class="plumbob-small" style="margin-bottom: 1rem;"></div>
+                <h3 id="resultTitle">¡Trivia Completada!</h3>
+                <p id="resultMessage" class="result-message"></p>
+                <button type="button" id="restartTriviaBtn" class="sims-btn secondary-btn" style="margin-top: 1rem;">
+                    🔄 Volver al inicio
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+   SECCIÓN: LC DESIGN & CODE (Firma & Portfolio)
+   ========================================== -->
+<section class="lcdesign-section" id="lcdesignBrand">
+    <div class="lcdesign-container">
+        <div class="lcdesign-badge"> Desarrollado por LCDesign&Code </div>
+        <h3 class="lcdesign-title"></h3>
+        
+        <div class="lcdesign-cta-wrapper">
+            <a href="https://lucianacarabajalsdet.github.io/LcDesigAndCode/" target="_blank" rel="noopener noreferrer" class="lcdesign-btn">
+                 Visitar Sitio
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+   MÓDULO DE SONIDO AMBIENTAL (sound)
+   ========================================== -->
+<div class="sound-widget" id="soundWidget">
+    <audio id="simsSoundAudio" loop preload="auto">
+        <source src="assets/audio/The Sims 4 - Woohoo Music.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <button type="button" class="sound-toggle-btn" id="soundToggleBtn" title="Activar / Silenciar ambiente">
+        <span class="sound-icon" id="soundIcon">🔇</span>
+        <span class="sound-text" id="soundText">Ambiente Sim</span>
+    </button>
+</div>
+
+    <!-- 2. SECCIONES FUTURAS (Info, RSVP, Música, Mapa, Calendar) irán aquí -->
+
+    <!-- Scripts por Secciones -->
+    <script src="js/header.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/rsvp.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/trivia.js"></script>
+    <script src="js/sound.js"></script>
+</html>

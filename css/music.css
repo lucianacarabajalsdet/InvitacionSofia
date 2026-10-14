@@ -1,0 +1,145 @@
+/* ==========================================
+   CABINA DE DJ / MÚSICA (Los Sims)
+   ========================================== */
+.music-section {
+    padding: 3rem 1rem;
+    background: linear-gradient(180deg, #001f3f, var(--sims-dark-blue));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+
+/* ==========================================
+   ESTADO BLOQUEADO (LOCKED) - CABINA DE DJ
+   ========================================== */
+.music-section.locked {
+    opacity: 0.4;
+    pointer-events: none !important; /* Impide clics o interacción general en la sección */
+    filter: blur(2px);
+    user-select: none;
+}
+
+/* Forzar que ningún elemento interno reciba foco, escritura o clics al estar bloqueado */
+.music-section.locked * {
+    pointer-events: none !important;
+}
+
+/* Permitir que el mensaje de advertencia mantenga lectura si es necesario */
+.music-section.locked .lock-message {
+    pointer-events: auto !important;
+}
+
+.lock-message {
+    background: rgba(255, 204, 0, 0.15);
+    border: 1px dashed #ffcc00;
+    padding: 0.6rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    margin-bottom: 1rem;
+}
+
+.music-card {
+    background: rgba(0, 34, 68, 0.8);
+    border: 2px solid rgba(88, 204, 2, 0.4);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.dj-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.vinyl-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: spinVinyl 4s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spinVinyl {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.dj-header h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.dj-header p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Formulario de música */
+.music-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.music-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.music-form label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.music-form input,
+.music-form textarea {
+    background: rgba(0, 20, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-form input:focus,
+.music-form textarea:focus {
+    border-color: var(--sims-green);
+    box-shadow: 0 0 8px var(--sims-plumbob-glow);
+}
+
+/* Notificación de éxito para música */
+.music-success {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.music-success h3 {
+    font-size: 1.3rem;
+    color: var(--sims-green);
+    margin-bottom: 0.8rem;
+}
+
+.music-success p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Adaptación Tablet y PC */
+@media (min-width: 768px) {
+    .music-card {
+        max-width: 440px;
+    }
+}

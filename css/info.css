@@ -1,0 +1,160 @@
+/* ==========================================
+   PANEL DE CONTROL / INFO DEL SIM (Los Sims)
+   ========================================== */
+.sim-info-section {
+    padding: 3rem 1rem 2rem 1rem;
+    background: linear-gradient(180deg, #001f3f, var(--sims-dark-blue));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sim-card {
+    background: rgba(0, 34, 68, 0.75);
+    border: 2px solid rgba(88, 204, 2, 0.4);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+}
+
+/* Avatar y mini Plumbob */
+.sim-avatar-container {
+    position: relative;
+    margin-top: -4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.plumbob-small {
+    width: 25px;
+    height: 40px;
+    background: linear-gradient(135deg, #76ff03, var(--sims-green));
+    margin: 0 auto 0.5rem auto;
+    clip-path: polygon(50% 0%, 100% 35%, 50% 100%, 0% 35%);
+    box-shadow: 0 0 12px var(--sims-plumbob-glow);
+    animation: floatPlumbob 2s ease-in-out infinite alternate;
+}
+
+.sim-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid var(--sims-green);
+    overflow: hidden;
+    background-color: #004080;
+    box-shadow: 0 0 20px rgba(88, 204, 2, 0.4);
+    margin: 0 auto;
+}
+
+.sim-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sim-details h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sim-occupation {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.sim-occupation span {
+    color: var(--sims-green);
+    font-weight: 600;
+}
+
+/* Rasgos (Traits) */
+.traits-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+}
+
+.trait-badge {
+    background: rgba(0, 102, 153, 0.6);
+    border: 1px solid rgba(88, 204, 2, 0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.trait-badge:hover {
+    background: var(--sims-green);
+    color: #002200;
+    transform: translateY(-2px);
+}
+
+/* Caja de datos del evento */
+.event-data-box {
+    background: rgba(0, 20, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.event-icon {
+    font-size: 1.2rem;
+    background: rgba(88, 204, 2, 0.2);
+    padding: 0.4rem;
+    border-radius: 8px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.event-item strong {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-item p {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Animación de la burbuja de pensamiento */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(5px); }
+    15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Adaptación Tablet y PC */
+@media (min-width: 768px) {
+    .sim-card {
+        max-width: 440px;
+    }
+}

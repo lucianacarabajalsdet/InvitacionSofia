@@ -1,0 +1,129 @@
+/* ==========================================
+   HEADER / PANTALLA DE CARGA (Los Sims Theme)
+   ========================================== */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Soporte óptimo para barras móviles */
+    background: linear-gradient(135deg, var(--sims-dark-blue), #001f3f);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    z-index: 1000;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.loading-container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sims-logo-container {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Diamante Plumbob simulado con CSS */
+.plumbob {
+    width: 45px;
+    height: 75px;
+    background: linear-gradient(135deg, #76ff03, var(--sims-green));
+    margin: 0 auto 1.2rem auto;
+    clip-path: polygon(50% 0%, 100% 35%, 50% 100%, 0% 35%);
+    box-shadow: 0 0 20px var(--sims-plumbob-glow);
+    animation: floatPlumbob 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatPlumbob {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        filter: brightness(0.9);
+    }
+    100% {
+        transform: translateY(-8px) rotate(3deg);
+        filter: brightness(1.2);
+    }
+}
+
+.sims-logo-container h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+}
+
+/* Barra de carga estilo juego */
+.progress-bar-background {
+    width: 100%;
+    max-width: 280px;
+    height: 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2px;
+    margin-bottom: 1rem;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #32cd32, var(--sims-green));
+    border-radius: 6px;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--sims-plumbob-glow);
+}
+
+.loading-tip {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    text-align: center;
+    min-height: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* Botón de acción estilo interfaz Sims */
+.btn-sims {
+    background: linear-gradient(180deg, #76ff03, var(--sims-green));
+    color: #002200;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(88, 204, 2, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-sims:hover {
+    transform: scale(1.05);
+    background: linear-gradient(180deg, var(--sims-green), #3ea800);
+    box-shadow: 0 6px 20px rgba(88, 204, 2, 0.6);
+}
+
+.btn-sims:active {
+    transform: scale(0.98);
+}
+
+/* Adaptación para pantallas Desktop/Tablet */
+@media (min-width: 768px) {
+    .loading-container {
+        max-width: 480px;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
